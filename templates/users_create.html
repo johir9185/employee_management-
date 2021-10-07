@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if message %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form class="form-horizontal" action='/users/save' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register {{ name }}</legend>
+                {% csrf_token %}
+            </div>
+            {{ form.as_p }}
+        </fieldset>
+
+        <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+                <button class="btn btn-success" type="submit">Register</button>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
